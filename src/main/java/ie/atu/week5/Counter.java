@@ -6,6 +6,14 @@ public class Counter {
         public Counter() {
             countValue = 0;
         }
+        public Counter(int startingValue) {
+            if (startingValue > 5){
+                countValue = startingValue;
+            }
+            else{
+                throw new IllegalArgumentException("This number is not valid");
+            }
+        }
         public int increment() {
             countValue++;
             return countValue;

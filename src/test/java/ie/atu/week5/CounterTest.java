@@ -17,6 +17,12 @@ class CounterTest {
         void testIncrement() {
             assertEquals(1,myCount.increment());
         }
+
+        @Test
+        void testConstructor(){
+            Exception exMessage = assertThrows(IllegalArgumentException.class,() -> { new Counter(4);});
+            assertEquals("This number is not valid",exMessage.getMessage());
+        }
         @AfterEach
         void tearDown() {
         }
