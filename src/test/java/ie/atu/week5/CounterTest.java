@@ -19,9 +19,15 @@ class CounterTest {
         }
 
         @Test
-        void testConstructor(){
+        void testConstructorFail(){
             Exception exMessage = assertThrows(IllegalArgumentException.class,() -> { new Counter(4);});
             assertEquals("This number is not valid",exMessage.getMessage());
+        }
+
+        @Test
+        void testConstructorSuccess(){
+            Exception exMessage = assertThrows(IllegalArgumentException.class,() -> { new Counter(6);});
+            assertEquals("This number is valid",exMessage.getMessage());
         }
         @AfterEach
         void tearDown() {

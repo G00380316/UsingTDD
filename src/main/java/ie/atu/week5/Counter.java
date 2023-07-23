@@ -9,11 +9,13 @@ public class Counter {
         public Counter(int startingValue) {
             if (startingValue > 5){
                 countValue = startingValue;
+                throw new IllegalArgumentException("This number is valid");
             }
             else{
                 throw new IllegalArgumentException("This number is not valid");
             }
         }
+
         public int increment() {
             countValue++;
             return countValue;
