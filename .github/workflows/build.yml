@@ -15,3 +15,16 @@ jobs:
         with:
           java-version: '15'
           distribution: 'adopt'
+
+  test:
+    needs: [build] #Can only start when build is finished needs build to be finished
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 15
+        uses: actions/setup-java@v2
+        with:
+          java-version: '15'
+          distribution: 'adopt'
+      - name: Build with Maven
+        run: mvn -B clean test #Using Maven this runs the clean phase(removes target file) and test phase in Maven lifecycle
