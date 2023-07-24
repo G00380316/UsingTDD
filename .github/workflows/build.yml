@@ -7,7 +7,7 @@ on: #Merges when pull request to Master branch is created
 jobs:
   build:
     runs-on: ubuntu-latest
-    #Copied from Marketplace in Github
+    #Copied from Marketplace in GitHub
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 15
@@ -19,6 +19,7 @@ jobs:
   test:
     needs: [build] #Can only start when build is finished needs build to be finished
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 15
@@ -26,5 +27,6 @@ jobs:
         with:
           java-version: '15'
           distribution: 'adopt'
+
       - name: Build with Maven
         run: mvn -B clean test #Using Maven this runs the clean phase(removes target file) and test phase in Maven lifecycle
